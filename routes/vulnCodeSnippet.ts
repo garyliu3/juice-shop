@@ -120,9 +120,9 @@ export const retrieveCodeSnippet = async (key: string, pass: boolean = false) =>
           const vulnLines = []
           const neutralLines = []
           for (let i = 0; i < lines.length; i++) {
-            if (new RegExp(`vuln-code-snippet vuln-line.*${challenge.key}`).exec(lines[i]) != null) {
+            if (vulnLines) {
               vulnLines.push(i + 1)
-            } else if (new RegExp(`vuln-code-snippet neutral-line.*${challenge.key}`).exec(lines[i]) != null) {
+            } else if (/test/.exec(lines[i]) != null) {
               neutralLines.push(i + 1)
             }
           }
