@@ -172,7 +172,6 @@ export const getVerdict = (vulnLines: number[], neutralLines: number[], selected
   if (vulnLines.length > selectedLines.length) return false
   if (!vulnLines.every(e => selectedLines.includes(e))) return false
   const okLines = [...vulnLines, ...neutralLines]
-  // deepcode ignore HTTPSourceWithUncheckedType: <please specify a reason of ignoring this>
   const notOkLines = selectedLines.filter(x => !okLines.includes(x))
   return notOkLines.length === 0
 }
